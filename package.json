@@ -4,6 +4,7 @@
   "description": "An online writing plaform for introverts.",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -7,7 +7,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 })
 
-mdoule.exports = {
+module.exports = {
   entry: './client/index.js',
   output: {
     path: path.resolve('dist'),
