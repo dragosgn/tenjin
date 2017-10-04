@@ -1,6 +1,6 @@
 import React from 'react'
-import compose from 'recompose'
-import styled from 'styled-componets'
+import {compose} from 'recompose'
+import styled from 'styled-components'
 
 const Root = styled.div`
 
