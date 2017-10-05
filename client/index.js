@@ -5,20 +5,42 @@ import {createStore, applyMiddleware, combineReducers} from 'redux'
 import { Provider } from 'react-redux'
 import { reducer as formReducer } from 'redux-form'
 import {ThemeProvider} from 'styled-components'
+import {AppContainer} from "react-hot-loader"
+import {render} from 'react-dom'
 
-import reducer from './reducers'
+import writerReducer from "./reducers/writer"
 
 
 const rootReducer = combineReducers({
   form: formReducer.plugin({
-    writer: writer
+    writer: writerReducer
   })
 })
 
+const theme = {
+  // colors
+  brandBlue: ""
+}
+
 const store = createStore(reducer)
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-  , document.getElementById('root'))
+const renderApp = (Component) => {
+  render(
+    <AppContainer>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>
+    </AppContainer>
+    , document.getElementById('root'))
+}
+
+renderApp(App)
+
+if(module.hot){
+  module.hot.accept("./components/App", () => {
+    const NextApp = require("./components/App").default
+    renderApp(NextApp)
+  })
+}
