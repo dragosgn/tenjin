@@ -11,12 +11,14 @@ const Root = styled.div`
 const StyledInput = styled.input`
   border-radius: 5px;
   border: 1px solid grey;
+  width: 400px;
+  height: 100px;
 `
 
 const TextBox = () => (
   <Root>
     <div>
-      <h1>Write here</h1>
+      <h3>Write here</h3>
       <StyledInput type="text"></StyledInput>
     </div>
   </Root>
