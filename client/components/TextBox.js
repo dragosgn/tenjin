@@ -26,5 +26,4 @@ const TextBox = () => (
 
 
 export default compose(
-
 )(TextBox)

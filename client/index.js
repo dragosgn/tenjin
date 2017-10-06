@@ -22,7 +22,13 @@ const theme = {
   brandBlue: ""
 }
 
-const store = createStore(reducer)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const enhancer = composeEnhancers(
+    applyMiddleware()
+)
+
+const store = createStore(reducer, enhancer)
 
 const renderApp = (Component) => {
   render(
